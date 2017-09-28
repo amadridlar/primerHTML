@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="formularioUsuario.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+	<script type="text/javascript" src="formularioUsuario.js"></script>
+</head>
+<body>
+<h4>Introduzca sus datos</h4>
+<p>
+	<div ng-app = "myApp" ng-controller="controller" >
+		Nombre: <input type="text" name="inputName" id="inputName" ng-model="name" required>
+		Apellido: <input type="text" id="inputLastName" ng-model="lastName">
+		Email: <input type="email" id="inputEmail" ng-model="email">
+		<button id="acceptButton" ng-click="acceptData()">Aceptar</button>
+		
+</p>
+	<p>
+		<form id="userForm" style="display:none">
+			<ul>
+				{{name}}
+				{{lastName}}
+				{{email}}
+			</ul>
+		</form>
+	</p>
+	</div>
+</body>
+<footer><h5>Tester2Qa</h5></footer>
+</html>

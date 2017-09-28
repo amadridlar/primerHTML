@@ -1,0 +1,6 @@
+input.ng-invalid{
+	border-color: #ff471a
+}
+input.ng-empty{
+	border-color: #4da6ff
+}
