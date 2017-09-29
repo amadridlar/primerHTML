@@ -4,3 +4,8 @@ input.ng-invalid{
 input.ng-empty{
 	border-color: #4da6ff
 }
+
+footer{
+	bottom: 0;
+	position: absolute;
+}

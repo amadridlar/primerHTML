@@ -1,30 +1,58 @@
 <!DOCTYPE html>
-<html>
+<html ng-app = "myApp">
 <head>
 	<link rel="stylesheet" type="text/css" href="formularioUsuario.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
 	<script type="text/javascript" src="formularioUsuario.js"></script>
 </head>
-<body>
+<body ng-controller="controller">
 <h4>Introduzca sus datos</h4>
 <p>
-	<div ng-app = "myApp" ng-controller="controller" >
-		Nombre: <input type="text" name="inputName" id="inputName" ng-model="name" required>
-		Apellido: <input type="text" id="inputLastName" ng-model="lastName">
-		Email: <input type="email" id="inputEmail" ng-model="email">
-		<button id="acceptButton" ng-click="acceptData()">Aceptar</button>
+	
+	<div>
+		<form name="myTable"><!--Para que funcione $valid en acceptData() hay que hace que la tabla sea de tipo <form>-->
+			<table>
+				<tr><td>Nombre</td> <td><input type="text" name="inputName" id="inputName" ng-model="userData.name" required></td></tr>
+				<tr><td>Apellido</td> <td><input type="text" name="inputLastName" id="inputLastName" ng-model="userData.lastName" required></td></tr>
+				<tr><td>Email</td> <td> <input type="email" name="inputEmail" id="inputEmail" ng-model="userData.email" required></td></tr><br>
+				<tr><td>Hijos<input type="checkbox" name="children" id="children" ng-model="userData.children"></td>
+				<td><input type="number" name="childrenNumber", id="childrenNumber" ng-disabled="userData.children===false" ng-model="userData.childrenNumber"></td></tr>
+				<tr><td>Casado/a<input type="checkbox" name="married" id="married" ng-model="userData.married"></td>
+				<td><span ng-show="userData.married===true">Número de cónyuges</span>
+				<select type="checkbox" name="numberOfMates" id="numberOfMates" ng-show="userData.married===true" ng-model="userData.numberOfMates">
+					<option value="1">1</option>
+					<option value="2">2</option>
+				</select></td></tr>
+				<tr><td><button id="acceptButton" ng-click="acceptData()">Aceptar</button></td></tr>
+			</table>
+		</form>
 		
 </p>
-	<p>
-		<form id="userForm" style="display:none">
+	
+	<form id="userForm" style="display:none">
+		<ul>
+			{{userData.name}}
+			{{userData.lastName}}
+			{{userData.email}}
+		</ul>
+	</form>
+
+
+
+<p>
+	<div>
+		Objeto  <input name="item" type="text" ng-model="userData.item" required>
+		<button ng-click="addItem()">Añadir</button>
+		<form>
 			<ul>
-				{{name}}
-				{{lastName}}
-				{{email}}
+				{{itemCopy}}
 			</ul>
 		</form>
-	</p>
+
 	</div>
-</body>
+
+</p>
 <footer><h5>Tester2Qa</h5></footer>
+</body>
+
 </html>
