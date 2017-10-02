@@ -1,4 +1,4 @@
-var app = angular.module('myApp', []);
+var app = angular.module('myApp', ['server']);
 
 app.controller('controller',['$scope',  function($scope){
 	$scope.userData = {
@@ -22,6 +22,8 @@ app.controller('controller',['$scope',  function($scope){
 	$scope.itemCopy = $scope.userData.item;
 	console.log($scope.itemCopy);
 	};
+
+	
 
 
 }]);

@@ -4,6 +4,7 @@
 	<link rel="stylesheet" type="text/css" href="formularioUsuario.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
 	<script type="text/javascript" src="formularioUsuario.js"></script>
+	<script type="text/javascript" src="server.js"></script>
 </head>
 <body ng-controller="controller">
 <h4>Introduzca sus datos</h4>
@@ -50,6 +51,7 @@
 		</form>
 
 	</div>
+	<button ng-controller="serverController" ng-click="showUserData()">Mostar datos</button>
 
 </p>
 <footer><h5>Tester2Qa</h5></footer>
